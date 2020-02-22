@@ -27,11 +27,9 @@ namespace BerlinClock
             }
 
             StringBuilder sb = new StringBuilder();
-
             int hours = timeSpan.Hours;
             int minutes = timeSpan.Minutes;
             int seconds = timeSpan.Seconds;
-
             bool yellowLamp = seconds % 2 == 0;
 
             if (yellowLamp)
@@ -54,7 +52,6 @@ namespace BerlinClock
 
             sb.Append("\r\n");
 
-
             for (int i = 0; i < 4; i++)
             {
                 if (i < hourBelowRedLampCount || isTimeTwentyFourAndCorrectTime)
@@ -67,7 +64,6 @@ namespace BerlinClock
 
             int minutesBelowRedLampCount = minutes % 5;
             int quartersCount = minutes / 15;
-
             int remainMinutes;
 
             if (minutes < 15)
@@ -76,13 +72,11 @@ namespace BerlinClock
                 remainMinutes = minutes - quartersCount * 15;
 
             int yellowMinutesCount = remainMinutes / 5;
-
             int zeroCount = 11 - quartersCount * 3 - yellowMinutesCount;
 
             for (int i = 0; i < quartersCount; i++)
             {
-                if (i < quartersCount)
-                    sb.Append("YYR");
+                sb.Append("YYR");
             }
 
             for (int i = 0; i < yellowMinutesCount; i++)
