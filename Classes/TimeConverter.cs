@@ -39,6 +39,18 @@ namespace BerlinClock
 
             sb.Append("\r\n");
 
+            string sHours = calculateHours(hours, isTimeTwentyFourAndCorrectTime);
+            sb.Append(sHours);
+
+            string sMinutes = calculateMinutes(minutes);
+            sb.Append(sMinutes);
+
+            return sb.ToString();
+        }
+
+        public string calculateHours(int hours, bool isTimeTwentyFourAndCorrectTime)
+        {
+            StringBuilder sb = new StringBuilder();
             int hourBelowRedLampCount = hours % 5;
             int hourTopRedLampCount = hours / 5;
 
@@ -62,6 +74,12 @@ namespace BerlinClock
 
             sb.Append("\r\n");
 
+            return sb.ToString();
+        }
+
+        public string calculateMinutes(int minutes)
+        {
+            StringBuilder sb = new StringBuilder();
             int minutesBelowRedLampCount = minutes % 5;
             int quartersCount = minutes / 15;
             int remainMinutes;
